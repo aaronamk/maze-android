@@ -20,7 +20,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".GeneratingActivity" />
-        <activity android:name=".PlayManuallyActivity"></activity>
+        <activity android:name=".PlayManuallyActivity" />
+        <activity android:name=".PlayAnimationActivity"></activity>
     </application>
 
 </manifest>
