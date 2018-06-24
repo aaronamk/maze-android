@@ -11,6 +11,7 @@ public class GeneratingActivity extends AppCompatActivity {
     private ProgressBar LoadBar;
     private int progress = 0;
     private Handler handler = new Handler();
+    private boolean Manual = true;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,11 +36,20 @@ public class GeneratingActivity extends AppCompatActivity {
                 handler.post(new Runnable() {
                     @Override
                     public void run() {
-                        switchToManual();
+                        if(Manual)
+                            switchToManual();
+                        else
+                            switchToAnimation();
                     }
                 });
             }
         }).start();
+    }
+    public void setAutomatic(){
+        Manual = false;
+    }
+    public void setManual(){
+        Manual = true;
     }
     public void switchToTitle(View view){
         startActivity(new Intent(this, AMazeActivity.class));

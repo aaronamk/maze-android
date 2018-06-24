@@ -15,4 +15,8 @@ public class FinishActivity extends AppCompatActivity {
         Intent intent = new Intent(this, AMazeActivity.class);
         startActivity(intent);
     }
+    public void onBackPressed() {
+        startActivity(new Intent(this, AMazeActivity.class));
+        return;
+    }
 }
