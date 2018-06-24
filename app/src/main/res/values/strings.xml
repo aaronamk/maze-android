@@ -6,4 +6,15 @@
     <string name="nav_header_subtitle">android.studio@android.com</string>
     <string name="nav_header_desc">Navigation header</string>
     <string name="action_settings">Settings</string>
+    <string name="create_maze">Create Maze</string>
+    <string name="size_label">Size:</string>
+    <string name="title_text">AMAZE</string>
+    <string name="load_maze">Load Maze</string>
+    <string name="select_algorithm_label">Algorithm:</string>
+    <string-array name="select_generation_algorithm">
+        <item>Manual</item>
+        <item>Prim</item>
+        <item>Kruskal</item>
+    </string-array>
+
 </resources>

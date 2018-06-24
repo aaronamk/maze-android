@@ -7,10 +7,77 @@
     tools:context=".AMazeActivity">
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/create_maze"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Button"
-        tools:layout_editor_absoluteX="146dp"
-        tools:layout_editor_absoluteY="230dp" />
+        android:layout_marginBottom="16dp"
+        android:layout_marginEnd="16dp"
+        android:elevation="0dp"
+        android:text="@string/create_maze"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <SeekBar
+        android:id="@+id/size"
+        android:layout_width="275dp"
+        android:layout_height="33dp"
+        android:layout_marginBottom="116dp"
+        android:layout_marginStart="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/size_label" />
+
+    <TextView
+        android:id="@+id/size_label"
+        android:layout_width="50dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="116dp"
+        android:layout_marginStart="16dp"
+        android:text="@string/size_label"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/title_text"
+        android:layout_width="121dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="88dp"
+        android:text="@string/title_text"
+        android:textAlignment="center"
+        android:textSize="36sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/load_maze"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:layout_marginStart="16dp"
+        android:text="@string/load_maze"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Spinner
+        android:id="@+id/select_generation_algorithm"
+        android:layout_width="153dp"
+        android:layout_height="31dp"
+        android:layout_marginBottom="188dp"
+        android:layout_marginStart="8dp"
+        android:entries="@array/select_generation_algorithm"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/select_algorithm_label" />
+
+    <TextView
+        android:id="@+id/select_algorithm_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="188dp"
+        android:layout_marginStart="16dp"
+        android:text="@string/select_algorithm_label"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
 </android.support.constraint.ConstraintLayout>
