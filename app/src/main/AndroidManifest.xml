@@ -19,7 +19,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".GeneratingActivity"></activity>
+        <activity android:name=".GeneratingActivity" />
+        <activity android:name=".PlayManuallyActivity"></activity>
     </application>
 
 </manifest>
