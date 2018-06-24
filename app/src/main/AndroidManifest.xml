@@ -21,7 +21,8 @@
         </activity>
         <activity android:name=".GeneratingActivity" />
         <activity android:name=".PlayManuallyActivity" />
-        <activity android:name=".PlayAnimationActivity"></activity>
+        <activity android:name=".PlayAnimationActivity" />
+        <activity android:name=".FinishActivity"></activity>
     </application>
 
 </manifest>

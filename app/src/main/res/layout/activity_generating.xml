@@ -12,15 +12,17 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="60dp"
         android:text="@string/cancel"
+        android:onClick="switchToTitle"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"/>
 
     <ProgressBar
         android:id="@+id/load_bar"
         style="?android:attr/progressBarStyleHorizontal"
         android:layout_width="341dp"
         android:layout_height="29dp"
+        android:progress="25"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -31,10 +33,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
-        android:text="TextView"
+        android:text="@string/load_bar_label"
         android:textSize="24sp"
         app:layout_constraintBottom_toTopOf="@+id/load_bar"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:text="@string/load_bar_label" />
+        app:layout_constraintStart_toStartOf="parent" />
 </android.support.constraint.ConstraintLayout>
