@@ -11,7 +11,7 @@ public class GeneratingActivity extends AppCompatActivity {
     private ProgressBar LoadBar;
     private int progress = 0;
     private Handler handler = new Handler();
-    private boolean Manual = true;
+    private boolean Manual = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,6 +19,10 @@ public class GeneratingActivity extends AppCompatActivity {
         setContentView(R.layout.activity_generating);
 
         LoadBar = findViewById(R.id.load_bar);
+
+        Intent intent = getIntent();
+        if(intent.getStringExtra("mode").equals("Manual"))
+            Manual = true;
 
         new Thread(new Runnable() {
             @Override
@@ -44,12 +48,6 @@ public class GeneratingActivity extends AppCompatActivity {
                 });
             }
         }).start();
-    }
-    public void setAutomatic(){
-        Manual = false;
-    }
-    public void setManual(){
-        Manual = true;
     }
     public void switchToTitle(View view){
         startActivity(new Intent(this, AMazeActivity.class));
