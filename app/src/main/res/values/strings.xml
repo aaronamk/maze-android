@@ -27,5 +27,9 @@
 
     <string name="play_button">Play</string>
     <string name="pause_button">Pause</string>
+    <string name="win">Finish</string>
+    <string name="lose">Low Battery</string>
+    <string name="robot">Robot:</string>
+    <string name="generation">Generation:</string>
 
 </resources>

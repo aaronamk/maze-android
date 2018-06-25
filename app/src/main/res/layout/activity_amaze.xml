@@ -67,23 +67,44 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <Spinner
-        android:id="@+id/select_generation_algorithm"
+        android:id="@+id/select_robot"
         android:layout_width="153dp"
         android:layout_height="31dp"
-        android:layout_marginBottom="188dp"
+        android:layout_marginBottom="50dp"
         android:layout_marginStart="8dp"
         android:entries="@array/select_generation_algorithm"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/select_algorithm_label" />
+        app:layout_constraintBottom_toTopOf="@+id/size"
+        app:layout_constraintStart_toEndOf="@+id/select_robot_label" />
 
     <TextView
-        android:id="@+id/select_algorithm_label"
-        android:layout_width="113dp"
+        android:id="@+id/select_robot_label"
+        android:layout_width="75dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="188dp"
+        android:layout_marginBottom="50dp"
         android:layout_marginStart="16dp"
+        android:text="@string/robot"
         android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/size_label"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Spinner
+        android:id="@+id/select_generation"
+        android:layout_width="151dp"
+        android:layout_height="32dp"
+        android:layout_marginBottom="50dp"
+        android:layout_marginStart="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/select_robot"
+        app:layout_constraintStart_toEndOf="@+id/textView2" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="50dp"
+        android:layout_marginStart="16dp"
+        android:text="@string/generation"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/select_robot_label"
         app:layout_constraintStart_toStartOf="parent" />
 
 </android.support.constraint.ConstraintLayout>

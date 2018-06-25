@@ -10,35 +10,46 @@ import android.widget.Spinner;
 import android.widget.Toast;
 
 public class AMazeActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
-    String[] generation = {"Manual", "Prim", "Kruskal"};
-    String Algorithm;
-    Spinner Spin;
+    String[] method = {"Manual", "Wall Follower", "Prim"};
+    String robotselection;
+    Spinner robot;
+
+    String[] GenerationList = {"input.xml", "Prim", "Kruskal"};
+    String GenerationSelection;
+    Spinner generation;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_amaze);
 
-        Spin = findViewById(R.id.select_generation_algorithm);
-        Spin.setOnItemSelectedListener(this);
-        ArrayAdapter adapter = new ArrayAdapter(this,android.R.layout.simple_spinner_item,generation);
+        robot = findViewById(R.id.select_robot);
+        robot.setOnItemSelectedListener(this);
+        ArrayAdapter adapter = new ArrayAdapter(this,android.R.layout.simple_spinner_item, method);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        Spin.setAdapter(adapter);
+        robot.setAdapter(adapter);
+
+        generation = findViewById(R.id.select_generation);
+        generation.setOnItemSelectedListener(this);
+        ArrayAdapter adapter2 = new ArrayAdapter(this,android.R.layout.simple_spinner_item, GenerationList);
+        adapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        generation.setAdapter(adapter2);
     }
 
     public void switchToGenerating(View view){
         Intent intent = new Intent(this, GeneratingActivity.class);
-        intent.putExtra("mode", Algorithm);
+        intent.putExtra("mode", robotselection);
         startActivity(intent);
     }
 
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-        Algorithm = generation[position];
-        Toast.makeText(getApplicationContext(), Algorithm, Toast.LENGTH_SHORT).show();
+        robotselection = method[position];
+        Toast.makeText(getApplicationContext(), robotselection, Toast.LENGTH_SHORT).show();
+
+        GenerationSelection = GenerationList[position];
+        Toast.makeText(getApplicationContext(), GenerationSelection, Toast.LENGTH_SHORT).show();
     }
     @Override
-    public void onNothingSelected(AdapterView<?> parent) {
-
-    }
+    public void onNothingSelected(AdapterView<?> parent) { }
 }
