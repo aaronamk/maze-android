@@ -2,6 +2,7 @@ package com.example.aaron.test;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.AdapterView;
@@ -44,11 +45,17 @@ public class AMazeActivity extends AppCompatActivity implements AdapterView.OnIt
 
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-        robotselection = method[position];
-        Toast.makeText(getApplicationContext(), robotselection, Toast.LENGTH_SHORT).show();
+        if(robotselection != method[position]) {
+            robotselection = method[position];
+            Toast.makeText(getApplicationContext(), robotselection, Toast.LENGTH_SHORT).show();
+            Log.v(robotselection, "Selection: " + robotselection);
+        }
+        if (GenerationSelection != GenerationList[position]) {
+            GenerationSelection = GenerationList[position];
+            Toast.makeText(getApplicationContext(), GenerationSelection, Toast.LENGTH_SHORT).show();
+            Log.v(GenerationSelection, "Selection: " + GenerationSelection);
 
-        GenerationSelection = GenerationList[position];
-        Toast.makeText(getApplicationContext(), GenerationSelection, Toast.LENGTH_SHORT).show();
+        }
     }
     @Override
     public void onNothingSelected(AdapterView<?> parent) { }
