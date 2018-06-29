@@ -7,11 +7,16 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ProgressBar;
 
+import com.example.aaron.test.generation.MazeFactory;
+import com.example.aaron.test.generation.StubOrder;
+
 public class GeneratingActivity extends AppCompatActivity {
     private ProgressBar LoadBar;
-    private int progress = 0;
+    private int Progress = 0;
     private Handler handler = new Handler();
     private boolean Manual = false;
+    MazeFactory F;
+    StubOrder Order;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,13 +32,14 @@ public class GeneratingActivity extends AppCompatActivity {
         new Thread(new Runnable() {
             @Override
             public void run() {
-                while(progress < 100){
-                    progress++;
+                F.order(Order);
+                while(Progress < 100){
+                    Progress++;
                     android.os.SystemClock.sleep(50);
                     handler.post(new Runnable() {
                         @Override
                         public void run() {
-                            LoadBar.setProgress(progress);
+                            LoadBar.setProgress(Progress);
                         }
                     });
                 }
@@ -49,6 +55,10 @@ public class GeneratingActivity extends AppCompatActivity {
             }
         }).start();
     }
+    public void updateProgress(int percentage) {
+        Progress = percentage;
+    }
+
     public void switchToTitle(View view){
         startActivity(new Intent(this, AMazeActivity.class));
     }

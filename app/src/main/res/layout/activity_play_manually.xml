@@ -81,18 +81,14 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <Button
-        android:id="@+id/shortcut"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
+    <View
+        android:id="@+id/MazeView"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
         android:layout_marginTop="8dp"
-        android:text="@string/shortcut"
-        android:onClick="switchToFinish"
-        app:layout_constraintBottom_toTopOf="@+id/up_button"
+        android:visibility="visible"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/divider"
-        tools:text="@string/shortcut" />
+        app:layout_constraintTop_toBottomOf="@+id/divider" />
 
 </android.support.constraint.ConstraintLayout>
