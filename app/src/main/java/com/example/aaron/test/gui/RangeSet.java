@@ -1,6 +1,7 @@
 package com.example.aaron.test.gui;
 
-import java.awt.Point;
+import android.graphics.Point;
+
 import java.util.Vector;
 
 /**

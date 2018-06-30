@@ -1,12 +1,14 @@
 package com.example.aaron.test.generation;
 
-import java.awt.Color;
+import android.graphics.Color;
+
+import com.example.aaron.test.gui.MazeFileWriter;
+
 import java.util.ArrayList;
 
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 
-import gui.MazeFileWriter;
 
 /**
  * A segment is a continuous sequence of walls in the maze.

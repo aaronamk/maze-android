@@ -3,16 +3,17 @@
  */
 package com.example.aaron.test.gui;
 
-import generation.BSPBranch;
-import generation.BSPLeaf;
-import generation.BSPNode;
-import generation.Cells;
-import generation.Distance;
-import generation.MazeConfiguration;
-import generation.MazeContainer;
-import generation.Seg;
+import android.graphics.Color;
 
-import java.awt.Color;
+import com.example.aaron.test.generation.BSPBranch;
+import com.example.aaron.test.generation.BSPLeaf;
+import com.example.aaron.test.generation.BSPNode;
+import com.example.aaron.test.generation.Cells;
+import com.example.aaron.test.generation.Distance;
+import com.example.aaron.test.generation.MazeConfiguration;
+import com.example.aaron.test.generation.MazeContainer;
+import com.example.aaron.test.generation.Seg;
+
 import java.io.File;
 import java.util.ArrayList;
 
@@ -215,7 +216,7 @@ public class MazeFileReader {
 		Seg result = new Seg(x,y,dx,dy,dist,cc) ;
 		// get a few more attributes and set those explicitly
 		int col = getElementIntValue("colSeg_" + number+ "_" + i, eElement);
-		result.setColor(new Color(col)); 
+		result.setColor(new Color(col));
 		result.setSeen(getElementBooleanValue("seenSeg_" + number+ "_" + i, eElement));
 		result.setPartition(getElementBooleanValue("partitionSeg_" + number+ "_" + i, eElement));
 		return result;

@@ -3,7 +3,7 @@
  */
 package com.example.aaron.test.generation;
 
-import gui.MazeFileWriter;
+import com.example.aaron.test.gui.MazeFileWriter;
 
 import java.util.ArrayList;
 

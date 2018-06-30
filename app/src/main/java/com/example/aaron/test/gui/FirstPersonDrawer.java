@@ -11,7 +11,6 @@ import com.example.aaron.test.generation.BSPLeaf;
 import com.example.aaron.test.generation.BSPNode;
 import com.example.aaron.test.generation.Cells;
 import com.example.aaron.test.generation.Seg;
-import com.example.aaron.test.gui.Constants;
 import java.util.ArrayList;
 
 /**

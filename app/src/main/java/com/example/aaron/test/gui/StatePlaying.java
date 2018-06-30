@@ -4,7 +4,6 @@ import com.example.aaron.test.generation.CardinalDirection;
 import com.example.aaron.test.generation.Cells;
 import com.example.aaron.test.generation.MazeConfiguration;
 
-import java.awt.Graphics;
 
 
 /**
@@ -32,7 +31,6 @@ public class StatePlaying extends DefaultState {
 	FirstPersonDrawer firstPersonView;
 	MapDrawer mapView;
     MazePanel panel;
-    Controller control;
     
     MazeConfiguration mazeConfig ;
     
@@ -76,13 +74,10 @@ public class StatePlaying extends DefaultState {
      * If the panel is null, all drawing operations are skipped.
      * This mode of operation is useful for testing purposes, 
      * i.e., a dryrun of the game without the graphics part.
-     * @param controller provides access to the controller this state resides in
      * @param panel is part of the UI and visible on the screen, needed for drawing
      */
     public void start(MazePanel panel) {
         started = true;
-        // keep the reference to the controller to be able to call method to switch the state
-        control = controller;
         // keep the reference to the panel for drawing
         this.panel = panel;
         //
@@ -221,8 +216,8 @@ public class StatePlaying extends DefaultState {
             System.out.println("Maze.notifierViewerRedraw: can't get graphics object to draw on, skipping redraw operation") ;
         }
         else {
-        	firstPersonView.redraw(g, StateGUI.STATE_PLAY, px, py, viewdx, viewdy, walkStep, Constants.VIEW_OFFSET, rset, angle) ;
-            mapView.redraw(g, StateGUI.STATE_PLAY, px, py, viewdx, viewdy, walkStep, Constants.VIEW_OFFSET, rset, angle) ;
+        	firstPersonView.redraw(g, Constants.StateGUI.STATE_PLAY, px, py, viewdx, viewdy, walkStep, Constants.VIEW_OFFSET, rset, angle) ;
+            mapView.redraw(g, Constants.StateGUI.STATE_PLAY, px, py, viewdx, viewdy, walkStep, Constants.VIEW_OFFSET, rset, angle) ;
         }   
 
         // update the screen with the buffer graphics

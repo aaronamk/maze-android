@@ -1,6 +1,7 @@
 package com.example.aaron.test.generation;
 
-import gui.Constants;
+import com.example.aaron.test.gui.Constants;
+
 import java.util.ArrayList;
 import java.util.Iterator;
 
@@ -205,7 +206,7 @@ public class BSPBuilder {
 	    //System.out.println("set Partition bit in BSP builder with scaled width and height values");
 		for (Seg se : sl) {
 			//se.updatePartitionIfBorderCase(width, height);
-		    se.updatePartitionIfBorderCase(width*Constants.MAP_UNIT, height*Constants.MAP_UNIT);
+		    se.updatePartitionIfBorderCase(width* Constants.MAP_UNIT, height*Constants.MAP_UNIT);
 		}
 	}
 

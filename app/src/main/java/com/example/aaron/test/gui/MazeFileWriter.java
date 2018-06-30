@@ -4,8 +4,9 @@
 package com.example.aaron.test.gui;
 
 
-import generation.BSPNode;
-import generation.Cells;
+import com.example.aaron.test.generation.BSPNode;
+import com.example.aaron.test.generation.Cells;
+
 
 import java.io.File;
 
@@ -74,8 +75,8 @@ public class MazeFileWriter {
 	 * @param doc
 	 */
 	static void storeMaze(int width, int height, int rooms,
-			int expected_partiters, BSPNode root, Cells cells, int[][] dists,
-			int startX, int startY, Document doc) {
+						  int expected_partiters, BSPNode root, Cells cells, int[][] dists,
+						  int startX, int startY, Document doc) {
 		Element mazeXML = doc.createElement("Maze");
 		doc.appendChild(mazeXML);
 		

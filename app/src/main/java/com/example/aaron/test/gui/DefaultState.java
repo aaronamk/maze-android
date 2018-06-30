@@ -3,9 +3,8 @@
  */
 package com.example.aaron.test.gui;
 
-import gui.Constants.UserInput;
-import generation.MazeConfiguration;
-import generation.Order.Builder;
+import com.example.aaron.test.generation.MazeConfiguration;
+import com.example.aaron.test.generation.Order;
 
 /**
  * This is a default implementation of the State interface
@@ -19,7 +18,7 @@ import generation.Order.Builder;
 public class DefaultState implements State {
 
     @Override
-    public void start(Controller controller, MazePanel panel) {
+    public void start(MazePanel panel) {
         throw new RuntimeException("DefaultState:using unimplemented method");    
     }
 
@@ -53,7 +52,7 @@ public class DefaultState implements State {
     }
 
     @Override
-    public void setBuilder(Builder dfs) {
+    public void setBuilder(Order.Builder dfs) {
         throw new RuntimeException("DefaultState:using unimplemented method");
     }
 }
