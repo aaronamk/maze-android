@@ -59,7 +59,7 @@ public interface State {
      * @param value carries a value, typically the skill level, optional
      * @return
      */
-    boolean keyDown(UserInput key, int value);
+    boolean keyDown(Constants.UserInput key, int value);
     /**
      * Sets the builder algorithm that should be used
      * to generate a maze

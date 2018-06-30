@@ -46,7 +46,7 @@ public class FirstPersonDrawer {
 	// used in bounding box
 	private int zscale = view_height/2;
 
-	private Graphics2D gc ; // the graphics object for the buffer image this class draws on
+	private MazePanel gc ; // the graphics object for the buffer image this class draws on
 	// note: updating the panel that is on screen with the buffer image 
 	// is the responsibility of the StatePlaying class
 	
@@ -96,7 +96,7 @@ public class FirstPersonDrawer {
 	
 	/**
 	 * Draws the first person view on the screen during the game
-	 * @param gc graphics handler for the buffer image that this class draws on
+	 * @param mp graphics handler for the buffer image that this class draws on
 	 * @param state the current state of the GUI
 	 * @param px x coordinate of current position, only used to get viewx
 	 * @param py y coordinate of current position, only used to get viewy
@@ -107,15 +107,14 @@ public class FirstPersonDrawer {
 	 * @param walk_step, only used to get viewx and viewy
 	 * @param view_offset, only used to get viewx and viewy
 	 */
-	public void redraw(Graphics gc, Constants.StateGUI state, int px, int py, int view_dx,
+	public void redraw(MazePanel mp, Constants.StateGUI state, int px, int py, int view_dx,
 					   int view_dy, int walk_step, int view_offset, RangeSet rset, int ang) {
 		// if notified by model that state has changed
 		// Query model for parameters
 		//dbg("viewer.redraw called");
 		if (state != Constants.StateGUI.STATE_PLAY)
 			return ;
-		
-		this.gc = (Graphics2D) gc ;
+
 		this.rset = rset ;
 		this.view_dx = view_dx ;
 		this.view_dy = view_dy ;
@@ -126,9 +125,9 @@ public class FirstPersonDrawer {
 		viewy = (py*map_unit+map_unit/2) + viewd_unscale(view_dy*(step_size*walk_step-view_offset));
 		// update graphics
 		// draw background figure: black on bottom half, grey on top half
-		drawBackground(gc);
+		drawBackground(mp);
 		// set color to white and draw what ever can be seen from the current position
-		gc.setColor(Color.white);
+		mp.setColor(MazePanel.getColorEncoding(0,0,0));
 		rset.set(0, view_width-1); // reset set of ranges to set with single new element (0,width-1)
 		// debug: reset counters
 		traverse_node_ct = traverse_ssector_ct =
@@ -145,10 +144,10 @@ public class FirstPersonDrawer {
 	 * Note that this also erases previous drawings of maze or map.
 	 * @param gc
 	 */
-	private void drawBackground(Graphics gc) {
-		gc.setColor(Color.black);
+	private void drawBackground(MazePanel gc) {
+		gc.setColor(ColorTheme.black);
 		gc.fillRect(0, 0, view_width, view_height/2);
-		gc.setColor(Color.darkGray);
+		gc.setColor(ColorTheme.darkGray);
 		gc.fillRect(0, view_height/2, view_width, view_height/2);
 	}
 	/**
@@ -416,7 +415,6 @@ public class FirstPersonDrawer {
 	    }
 	    /**
 	     * Helper method for bbox_visible and drawrect
-	     * @param rp may be modified 
 	     * @return
 	     */
         public boolean clip3d() {

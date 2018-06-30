@@ -16,7 +16,7 @@ public class PlayManuallyActivity extends AppCompatActivity {
     private StatePlaying SP;
     private FirstPersonDrawer FPD;
     private MazePanel MP;
-    private Canvas C;
+    private Canvas C = new Canvas(B);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,7 +24,6 @@ public class PlayManuallyActivity extends AppCompatActivity {
         setContentView(R.layout.activity_play_manually);
         StatePlaying SP = new StatePlaying();
         SP.setMazeConfiguration(GeneratingActivity.MC);
-        C = new Canvas(B);
         MP.setCanvas(C);
         SP.start(MP);
 

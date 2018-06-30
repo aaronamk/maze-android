@@ -47,7 +47,7 @@ public class DefaultState implements State {
     }
 
     @Override
-    public boolean keyDown(UserInput key, int value) {
+    public boolean keyDown(Constants.UserInput key, int value) {
         throw new RuntimeException("DefaultState:using unimplemented method");
     }
 

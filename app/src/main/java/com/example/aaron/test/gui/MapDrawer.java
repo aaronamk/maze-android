@@ -9,13 +9,6 @@ import com.example.aaron.test.generation.CardinalDirection;
 import com.example.aaron.test.generation.Cells;
 import com.example.aaron.test.generation.MazeConfiguration;
 
-import gui.Constants.StateGUI;
-import generation.CardinalDirection;
-import generation.Cells;
-import generation.MazeConfiguration;
-import java.awt.Color;
-import java.awt.Graphics;
-
 /**
  * This class encapsulates all functionality to draw a map of the overall maze, the set of visible walls, the solution.
  * The map is drawn on the screen in such a way that the current position remains at the center of the screen.
@@ -103,7 +96,7 @@ public class MapDrawer {
 	}
 
 	
-	public void redraw(Graphics gc, Constants.StateGUI state, int px, int py,
+	public void redraw(MazePanel gc, Constants.StateGUI state, int px, int py,
 					   int view_dx, int view_dy, int walk_step, int view_offset,
 					   RangeSet rset, int ang) {
 		//dbg("redraw") ;
@@ -124,13 +117,13 @@ public class MapDrawer {
 	 * Of course a part covering the current location needs to be displayed.
 	 * @param gc graphics handler to manipulate screen
 	 */
-	public void draw_map(Graphics gc, int px, int py, int walk_step, 
+	public void draw_map(MazePanel gc, int px, int py, int walk_step,
 			int view_dx, int view_dy, boolean showMaze, boolean showSolution) {
 		// dimensions of the maze
 		final int mazew = mazeConfig.getWidth() ;
 		final int mazeh = mazeConfig.getHeight() ;
 		
-		gc.setColor(Color.white);
+		gc.setColor(ColorTheme.white);
 		
 		// determine offsets for x and y
 		int vx = px*map_unit+map_unit/2;
@@ -163,7 +156,7 @@ public class MapDrawer {
 						mazeConfig.hasWall(x,y, CardinalDirection.North) :
 							mazeConfig.hasWall(x,y-1, CardinalDirection.South));
 
-				gc.setColor(seencells.hasWall(x,y, CardinalDirection.North) ? Color.white : Color.gray);
+				gc.setColor(seencells.hasWall(x,y, CardinalDirection.North) ? ColorTheme.white : ColorTheme.gray);
 				if ((seencells.hasWall(x,y, CardinalDirection.North) || showMaze) && theCondition)
 					gc.drawLine(nx1, ny1, nx2, ny1);
 				
@@ -171,7 +164,7 @@ public class MapDrawer {
 						mazeConfig.hasWall(x,y, CardinalDirection.West) :
 							mazeConfig.hasWall((x-1),y, CardinalDirection.East));
 
-				gc.setColor(seencells.hasWall(x,y, CardinalDirection.West) ? Color.white : Color.gray);
+				gc.setColor(seencells.hasWall(x,y, CardinalDirection.West) ? ColorTheme.white : ColorTheme.gray);
 				if ((seencells.hasWall(x,y, CardinalDirection.West) || showMaze) && theCondition)
 					gc.drawLine(nx1, ny1, nx1, ny2);
 			}
@@ -187,8 +180,8 @@ public class MapDrawer {
 	 * The map drawing moves if the user changes location.
 	 * @param gc to draw on
 	 */
-	public void draw_currentlocation(Graphics gc, int view_dx, int view_dy) {
-		gc.setColor(Color.red);
+	public void draw_currentlocation(MazePanel gc, int view_dx, int view_dy) {
+		gc.setColor(ColorTheme.red);
 		// draw oval of appropriate size at the center of the screen
 		int ctrx = view_width/2; // center x
 		int ctry = view_height/2; // center y
@@ -220,7 +213,7 @@ public class MapDrawer {
 	 * @param offx
 	 * @param offy
 	 */
-	public void draw_solution(Graphics gc, int offx, int offy, int px, int py) {
+	public void draw_solution(MazePanel gc, int offx, int offy, int px, int py) {
 
 		if (!mazeConfig.isValidPosition(px, py)) {
 			dbg(" Parameter error: position out of bounds: (" + px + "," + py + ") for maze of size " + mazeConfig.getWidth() + "," + mazeConfig.getHeight()) ;
@@ -231,7 +224,7 @@ public class MapDrawer {
 		int sy = py;
 		int distance = mazeConfig.getDistanceToExit(sx, sy);
 		
-		gc.setColor(Color.yellow);
+		gc.setColor(ColorTheme.yellow);
 		
 		// while we are more than 1 step away from the final position
 		while (distance > 1) {

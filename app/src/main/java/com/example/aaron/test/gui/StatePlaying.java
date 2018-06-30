@@ -110,13 +110,13 @@ public class StatePlaying extends DefaultState {
         	// else: dry-run without graphics
         	printWarning();
         }
-        if(control.getRobot() != null) {
+        /**if(control.getRobot() != null) {
         	try {
 				control.getDriver().drive2Exit();
 			} catch (Exception e) {
 				//call the lose screen
 			}
-        }
+        }*/
     }
     /**
      * Internal method to set the current position, the direction
@@ -139,7 +139,7 @@ public class StatePlaying extends DefaultState {
      * Method incorporates all reactions to keyboard input in original code, 
      * The simple key listener calls this method to communicate input.
      */
-    public boolean keyDown(UserInput key, int value) {
+    public boolean keyDown(Constants.UserInput key, int value) {
         if (!started)
             return false;
 
@@ -153,7 +153,7 @@ public class StatePlaying extends DefaultState {
         case Up: // move forward
             walk(1);
             if (isOutside(px,py)) {
-                control.switchFromPlayingToWinning(0);
+                //control.switchFromPlayingToWinning(0);
             }
             break;
         case Left: // turn left
@@ -165,11 +165,11 @@ public class StatePlaying extends DefaultState {
         case Down: // move backward
             walk(-1);
             if (isOutside(px,py)) {
-                control.switchFromPlayingToWinning(0);
+                //control.switchFromPlayingToWinning(0);
             }
             break;
         case ReturnToTitle: // escape to title screen
-            control.switchToTitle();
+            //control.switchToTitle();
             break;
         case Jump: // make a step forward even through a wall
             // go to position if within maze
@@ -210,7 +210,7 @@ public class StatePlaying extends DefaultState {
     		printWarning();
     		return;
     	}
-        Graphics g = panel.getBufferGraphics() ;
+        /*MazePanel g = panel.getBufferGraphics() ;
         // viewers draw on the buffer graphics
         if (null == g) {
             System.out.println("Maze.notifierViewerRedraw: can't get graphics object to draw on, skipping redraw operation") ;
@@ -218,7 +218,7 @@ public class StatePlaying extends DefaultState {
         else {
         	firstPersonView.redraw(g, Constants.StateGUI.STATE_PLAY, px, py, viewdx, viewdy, walkStep, Constants.VIEW_OFFSET, rset, angle) ;
             mapView.redraw(g, Constants.StateGUI.STATE_PLAY, px, py, viewdx, viewdy, walkStep, Constants.VIEW_OFFSET, rset, angle) ;
-        }   
+        } */
 
         // update the screen with the buffer graphics
         panel.update() ;

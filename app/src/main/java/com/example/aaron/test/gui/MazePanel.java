@@ -69,11 +69,11 @@ public class MazePanel extends View {
     }
     
     /**
-     * Takes in color string, sets paint color to corresponding color. 
+     * Takes in ColorTheme, sets paint color to corresponding color.
      * @param c
      */
-    public void setColor(String c) {
-	// TODO: same as setColor(int) but for string parameters
+    public void setColor(ColorTheme CT) {
+
     }
 
     /**
@@ -149,5 +149,4 @@ public class MazePanel extends View {
     public void fillOval(int x, int y, int width, int height) {
 	// TODO: draw an oval on the canvas
     }
-
 }

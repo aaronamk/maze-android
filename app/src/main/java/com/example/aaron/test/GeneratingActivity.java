@@ -9,6 +9,8 @@ import android.widget.ProgressBar;
 
 import com.example.aaron.test.generation.MazeConfiguration;
 import com.example.aaron.test.generation.MazeFactory;
+import com.example.aaron.test.generation.Order;
+import com.example.aaron.test.generation.Order.Builder;
 import com.example.aaron.test.generation.StubOrder;
 
 public class GeneratingActivity extends AppCompatActivity {
@@ -17,8 +19,8 @@ public class GeneratingActivity extends AppCompatActivity {
     private Handler handler = new Handler();
     private boolean Manual = false;
     protected static MazeConfiguration MC;
-    MazeFactory F;
-    StubOrder Order;
+    MazeFactory F = new MazeFactory();
+    StubOrder Order = new StubOrder(2, Builder.Kruskal, false);;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
