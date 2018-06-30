@@ -37,13 +37,17 @@ public class MazePanel extends View {
         // call super class constructor as necessary
 	// TODO: initialize instance variables as necessary
     }
+    public void setCanvas(Canvas C){
+        this.C = C;
+    }
     /**
      * Draws given canvas.
      * @param c
      */
     @Override
 	public void onDraw(Canvas c) {
-	// TODO: draw bitmap
+        super.onDraw(c);
+	    C.drawBitmap(BM,null,null);
     }
     
     /**

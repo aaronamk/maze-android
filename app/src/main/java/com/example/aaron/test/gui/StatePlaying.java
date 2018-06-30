@@ -1,12 +1,10 @@
 package com.example.aaron.test.gui;
 
-import java.awt.Graphics;
+import com.example.aaron.test.generation.CardinalDirection;
+import com.example.aaron.test.generation.Cells;
+import com.example.aaron.test.generation.MazeConfiguration;
 
-import gui.Constants.StateGUI;
-import gui.Constants.UserInput;
-import generation.CardinalDirection;
-import generation.Cells;
-import generation.MazeConfiguration;
+import java.awt.Graphics;
 
 
 /**
@@ -36,7 +34,7 @@ public class StatePlaying extends DefaultState {
     MazePanel panel;
     Controller control;
     
-    MazeConfiguration mazeConfig ; 
+    MazeConfiguration mazeConfig ;
     
     private boolean showMaze;           // toggle switch to show overall maze on screen
     private boolean showSolution;       // toggle switch to show solution in overall maze on screen
@@ -81,7 +79,7 @@ public class StatePlaying extends DefaultState {
      * @param controller provides access to the controller this state resides in
      * @param panel is part of the UI and visible on the screen, needed for drawing
      */
-    public void start(Controller controller, MazePanel panel) {
+    public void start(MazePanel panel) {
         started = true;
         // keep the reference to the controller to be able to call method to switch the state
         control = controller;

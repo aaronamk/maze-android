@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ProgressBar;
 
+import com.example.aaron.test.generation.MazeConfiguration;
 import com.example.aaron.test.generation.MazeFactory;
 import com.example.aaron.test.generation.StubOrder;
 
@@ -15,6 +16,7 @@ public class GeneratingActivity extends AppCompatActivity {
     private int Progress = 0;
     private Handler handler = new Handler();
     private boolean Manual = false;
+    protected static MazeConfiguration MC;
     MazeFactory F;
     StubOrder Order;
 
@@ -33,6 +35,7 @@ public class GeneratingActivity extends AppCompatActivity {
             @Override
             public void run() {
                 F.order(Order);
+                MC = Order.getMazeConfiguration();
                 while(Progress < 100){
                     Progress++;
                     android.os.SystemClock.sleep(50);

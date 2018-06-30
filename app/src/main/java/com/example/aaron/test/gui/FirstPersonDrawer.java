@@ -3,16 +3,15 @@
  */
 package com.example.aaron.test.gui;
 
-import gui.Constants.StateGUI;
-import generation.BSPBranch;
-import generation.BSPLeaf;
-import generation.BSPNode;
-import generation.Cells;
-import generation.Seg;
-import java.awt.Color;
-import java.awt.Graphics;
-import java.awt.Graphics2D;
-import java.awt.Point;
+import android.graphics.Color;
+import android.graphics.Point;
+
+import com.example.aaron.test.generation.BSPBranch;
+import com.example.aaron.test.generation.BSPLeaf;
+import com.example.aaron.test.generation.BSPNode;
+import com.example.aaron.test.generation.Cells;
+import com.example.aaron.test.generation.Seg;
+import com.example.aaron.test.gui.Constants;
 import java.util.ArrayList;
 
 /**
@@ -109,12 +108,12 @@ public class FirstPersonDrawer {
 	 * @param walk_step, only used to get viewx and viewy
 	 * @param view_offset, only used to get viewx and viewy
 	 */
-	public void redraw(Graphics gc, StateGUI state, int px, int py, int view_dx, 
-			int view_dy, int walk_step, int view_offset, RangeSet rset, int ang) {
+	public void redraw(Graphics gc, Constants.StateGUI state, int px, int py, int view_dx,
+					   int view_dy, int walk_step, int view_offset, RangeSet rset, int ang) {
 		// if notified by model that state has changed
 		// Query model for parameters
 		//dbg("viewer.redraw called");
-		if (state != StateGUI.STATE_PLAY)
+		if (state != Constants.StateGUI.STATE_PLAY)
 			return ;
 		
 		this.gc = (Graphics2D) gc ;
