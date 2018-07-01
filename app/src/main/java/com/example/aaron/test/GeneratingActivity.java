@@ -2,6 +2,7 @@ package com.example.aaron.test;
 
 import android.content.Intent;
 import android.os.Handler;
+import android.os.Looper;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -15,18 +16,19 @@ import com.example.aaron.test.generation.StubOrder;
 public class GeneratingActivity extends AppCompatActivity {
     private ProgressBar LoadBar;
     private int Progress = 0;
-    private Handler handler = new Handler();
+    private Handler handler = new Handler();;
     private boolean Manual = false;
-    MazeFactory F = new MazeFactory();
+    MazeFactory F;
     StubOrder Order;
     public static MazeConfiguration MC;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Order = new StubOrder(2, Builder.Kruskal, false);
         setContentView(R.layout.activity_generating);
-
+        F = new MazeFactory();
+        Order = new StubOrder(2, Builder.Kruskal, false);
+        MC = Order.getMazeConfiguration();
         LoadBar = findViewById(R.id.load_bar);
 
         Intent intent = getIntent();
@@ -37,7 +39,6 @@ public class GeneratingActivity extends AppCompatActivity {
             @Override
             public void run() {
                 F.order(Order);
-                MC = Order.getMazeConfiguration();
                 while(Progress < 100){
                     Progress++;
                     android.os.SystemClock.sleep(50);

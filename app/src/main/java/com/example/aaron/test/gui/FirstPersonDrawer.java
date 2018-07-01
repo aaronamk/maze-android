@@ -163,7 +163,7 @@ public class FirstPersonDrawer {
 			drawAllSegmentsOfASector((BSPLeaf) nn);
 			return;
 		}
-		
+
 		// for intermediate nodes proceed recursively through all visible branches
 		BSPBranch n = (BSPBranch) nn;
 		

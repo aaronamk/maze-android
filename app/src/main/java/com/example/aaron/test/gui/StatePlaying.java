@@ -210,7 +210,7 @@ public class StatePlaying extends DefaultState {
     		printWarning();
     		return;
     	}
-        /*MazePanel g = panel.getBufferGraphics() ;
+        MazePanel g = panel;
         // viewers draw on the buffer graphics
         if (null == g) {
             System.out.println("Maze.notifierViewerRedraw: can't get graphics object to draw on, skipping redraw operation") ;
@@ -218,7 +218,7 @@ public class StatePlaying extends DefaultState {
         else {
         	firstPersonView.redraw(g, Constants.StateGUI.STATE_PLAY, px, py, viewdx, viewdy, walkStep, Constants.VIEW_OFFSET, rset, angle) ;
             mapView.redraw(g, Constants.StateGUI.STATE_PLAY, px, py, viewdx, viewdy, walkStep, Constants.VIEW_OFFSET, rset, angle) ;
-        } */
+        }
 
         // update the screen with the buffer graphics
         panel.update() ;

@@ -18,6 +18,8 @@ public class MazePanel extends View {
     // https://developer.android.com/training/custom-views/create-view
     // https://developer.android.com/training/custom-views/custom-drawing
     // on how to implement your own View class
+    private int CurColor;
+    private Paint P = new Paint();
     private Canvas C = new Canvas(PlayManuallyActivity.B);
     /**
      * Constructor with one context parameter.
@@ -48,7 +50,6 @@ public class MazePanel extends View {
      */
     @Override
 	public void onDraw(Canvas c) {
-        super.onDraw(c);
 	    C.drawBitmap(PlayManuallyActivity.B,null,null);
     }
     
@@ -74,7 +75,8 @@ public class MazePanel extends View {
      * @param CT
      */
     public void setColor(ColorTheme CT) {
-
+        CurColor = CT.getColorCode();
+        P.setColor(CurColor);
     }
 
     /**
@@ -82,7 +84,8 @@ public class MazePanel extends View {
      * @param color
      */
     public void setColor(int color) {
-	// TODO: set the current color
+        CurColor = color;
+        P.setColor(color);
     }
     
     /**
@@ -103,7 +106,7 @@ public class MazePanel extends View {
      */
     public int getColor() {
 	// TODO return the current color setting
-        return 0;
+        return CurColor;
     }
     
     /**
@@ -114,7 +117,7 @@ public class MazePanel extends View {
      * @param height
      */
     public void fillRect(int x, int y, int width, int height) {
-        C.drawRect(x, y, x+width, y+height, null);
+        C.drawRect(x, y, x+width, y+height, P);
     }
     
     /**

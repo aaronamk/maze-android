@@ -11,14 +11,17 @@ import com.example.aaron.test.gui.MazePanel;
 import com.example.aaron.test.gui.StatePlaying;
 
 public class PlayManuallyActivity extends AppCompatActivity {
-    public static Bitmap B = Bitmap.createBitmap(300,300,Bitmap.Config.ARGB_8888);
-    private StatePlaying SP = new StatePlaying();
+    public static Bitmap B;
+    private StatePlaying SP;
     private MazePanel MP;
-    private Canvas C = new Canvas(B);
+    private Canvas C;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        B = Bitmap.createBitmap(300,300,Bitmap.Config.ARGB_8888);
+        SP = new StatePlaying();
+        C = new Canvas(B);
         MP = new MazePanel(this);
         setContentView(R.layout.activity_play_manually);
         SP.setMazeConfiguration(GeneratingActivity.MC);

@@ -54,7 +54,6 @@ public class AMazeActivity extends AppCompatActivity implements AdapterView.OnIt
             GenerationSelection = GenerationList[position];
             Toast.makeText(getApplicationContext(), GenerationSelection, Toast.LENGTH_SHORT).show();
             Log.v(GenerationSelection, "Selection: " + GenerationSelection);
-
         }
     }
     @Override
