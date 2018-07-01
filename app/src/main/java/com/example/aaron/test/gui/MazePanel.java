@@ -8,8 +8,6 @@ import android.graphics.Paint;
 import android.util.AttributeSet;
 import android.view.View;
 
-import com.example.aaron.test.PlayManuallyActivity;
-
 /**
  * Handles maze graphics.
  */
@@ -20,7 +18,8 @@ public class MazePanel extends View {
     // on how to implement your own View class
     private int CurColor;
     private Paint P = new Paint();
-    private Canvas C = new Canvas(PlayManuallyActivity.B);
+    private Bitmap B = Bitmap.createBitmap(300,300,Bitmap.Config.ARGB_8888);
+    private Canvas C = new Canvas(B);
     /**
      * Constructor with one context parameter.
      * @param context
@@ -50,7 +49,7 @@ public class MazePanel extends View {
      */
     @Override
 	public void onDraw(Canvas c) {
-	    C.drawBitmap(PlayManuallyActivity.B,null,null);
+	    C.drawBitmap(B,null,null);
     }
     
     /**

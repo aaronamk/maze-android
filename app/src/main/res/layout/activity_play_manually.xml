@@ -81,7 +81,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <View
+    <com.example.aaron.test.gui.MazePanel
         android:id="@+id/MazeView"
         android:layout_width="300dp"
         android:layout_height="300dp"
