@@ -7,26 +7,23 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 
-import com.example.aaron.test.gui.FirstPersonDrawer;
 import com.example.aaron.test.gui.MazePanel;
 import com.example.aaron.test.gui.StatePlaying;
 
 public class PlayManuallyActivity extends AppCompatActivity {
-    protected static Bitmap B;
-    private StatePlaying SP;
-    private FirstPersonDrawer FPD;
+    public static Bitmap B = Bitmap.createBitmap(300,300,Bitmap.Config.ARGB_8888);
+    private StatePlaying SP = new StatePlaying();
     private MazePanel MP;
     private Canvas C = new Canvas(B);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        MP = new MazePanel(this);
         setContentView(R.layout.activity_play_manually);
-        StatePlaying SP = new StatePlaying();
         SP.setMazeConfiguration(GeneratingActivity.MC);
         MP.setCanvas(C);
         SP.start(MP);
-
     }
     public void onBackPressed() {
         startActivity(new Intent(this, AMazeActivity.class));

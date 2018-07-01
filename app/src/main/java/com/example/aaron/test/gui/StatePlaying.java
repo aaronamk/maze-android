@@ -31,7 +31,7 @@ public class StatePlaying extends DefaultState {
 	FirstPersonDrawer firstPersonView;
 	MapDrawer mapView;
     MazePanel panel;
-    
+
     MazeConfiguration mazeConfig ;
     
     private boolean showMaze;           // toggle switch to show overall maze on screen
@@ -126,7 +126,7 @@ public class StatePlaying extends DefaultState {
 	private void setPositionDirectionViewingDirection() {
 		// obtain starting position
         int[] start = mazeConfig.getStartingPosition() ;
-        setCurrentPosition(start[0],start[1]) ;
+        setCurrentPosition(2,2) ;
         // set current view direction and angle
         setCurrentDirection(1, 0) ; // east direction
         viewdx = dx<<16; 

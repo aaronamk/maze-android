@@ -4,8 +4,11 @@ import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Color;
+import android.graphics.Paint;
 import android.util.AttributeSet;
 import android.view.View;
+
+import com.example.aaron.test.PlayManuallyActivity;
 
 /**
  * Handles maze graphics.
@@ -15,15 +18,14 @@ public class MazePanel extends View {
     // https://developer.android.com/training/custom-views/create-view
     // https://developer.android.com/training/custom-views/custom-drawing
     // on how to implement your own View class
-    private Bitmap BM;
-    private Canvas C;
+    private Canvas C = new Canvas(PlayManuallyActivity.B);
     /**
      * Constructor with one context parameter.
      * @param context
      */
     public MazePanel(Context context) {
         super(context);
-        C = new Canvas(BM);
+
         // call super class constructor as necessary
 	// TODO: initialize instance variables as necessary
     }
@@ -47,7 +49,7 @@ public class MazePanel extends View {
     @Override
 	public void onDraw(Canvas c) {
         super.onDraw(c);
-	    C.drawBitmap(BM,null,null);
+	    C.drawBitmap(PlayManuallyActivity.B,null,null);
     }
     
     /**
@@ -57,8 +59,7 @@ public class MazePanel extends View {
      */
     @Override
     public void onMeasure(int width, int height) {
-
-	// as described for superclass method
+        super.onMeasure(width, height);
     }
     
     /**
@@ -70,7 +71,7 @@ public class MazePanel extends View {
     
     /**
      * Takes in ColorTheme, sets paint color to corresponding color.
-     * @param c
+     * @param CT
      */
     public void setColor(ColorTheme CT) {
 
@@ -113,7 +114,7 @@ public class MazePanel extends View {
      * @param height
      */
     public void fillRect(int x, int y, int width, int height) {
-	// draw a filled rectangle on the canvas, requires decision on its color
+        C.drawRect(x, y, x+width, y+height, null);
     }
     
     /**
@@ -124,8 +125,8 @@ public class MazePanel extends View {
      * @param nPoints
      */
     public void fillPolygon(int[] xPoints, int[] yPoints, int nPoints){
-	// translate the points into a path
-	// draw a path on the canvas
+        // translate the points into a path
+        // draw a path on the canvas
     }
     
     /**
@@ -136,7 +137,7 @@ public class MazePanel extends View {
      * @param y2
      */
     public void drawLine(int x1, int y1, int x2, int y2) {
-	// TODO: draw a line on the canvas 
+        C.drawLine(x1, x2, y1, y2, null);
     }
     
     /**

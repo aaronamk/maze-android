@@ -9,7 +9,6 @@ import android.widget.ProgressBar;
 
 import com.example.aaron.test.generation.MazeConfiguration;
 import com.example.aaron.test.generation.MazeFactory;
-import com.example.aaron.test.generation.Order;
 import com.example.aaron.test.generation.Order.Builder;
 import com.example.aaron.test.generation.StubOrder;
 
@@ -18,13 +17,14 @@ public class GeneratingActivity extends AppCompatActivity {
     private int Progress = 0;
     private Handler handler = new Handler();
     private boolean Manual = false;
-    protected static MazeConfiguration MC;
     MazeFactory F = new MazeFactory();
-    StubOrder Order = new StubOrder(2, Builder.Kruskal, false);;
+    StubOrder Order;
+    public static MazeConfiguration MC;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Order = new StubOrder(2, Builder.Kruskal, false);
         setContentView(R.layout.activity_generating);
 
         LoadBar = findViewById(R.id.load_bar);

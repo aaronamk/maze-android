@@ -5,7 +5,7 @@ public class StubOrder implements Order {
 	Builder Builder;
 	boolean Perfect;
 	int Progress = 0;
-	MazeConfiguration MazeConfig;
+	MazeConfiguration MazeConfig = new MazeContainer();
 	
 	public StubOrder() {}
 	
