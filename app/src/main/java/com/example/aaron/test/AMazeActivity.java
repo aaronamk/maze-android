@@ -8,6 +8,7 @@ import android.view.View;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.SeekBar;
 import android.widget.Spinner;
 import android.widget.Toast;
 
@@ -19,6 +20,7 @@ public class AMazeActivity extends AppCompatActivity implements AdapterView.OnIt
     String[] GenerationList = {"input.xml", "Prim", "Kruskal"};
     String GenerationSelection;
     Spinner generation;
+    SeekBar Size;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,12 +38,30 @@ public class AMazeActivity extends AppCompatActivity implements AdapterView.OnIt
         ArrayAdapter adapter2 = new ArrayAdapter(this,android.R.layout.simple_spinner_item, GenerationList);
         adapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         generation.setAdapter(adapter2);
+
+        Size=findViewById(R.id.size);
+        Size.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            int progressChangedValue = 0;
+
+            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+                progressChangedValue = progress;
+            }
+
+            public void onStartTrackingTouch(SeekBar seekBar) {
+                Log.v("AMazeActivity", "Bar Selected");
+            }
+
+            public void onStopTrackingTouch(SeekBar seekBar) {
+                Log.v("AMazeActivity", "Bar Released at value: "+Size.getProgress());
+            }
+        });
     }
 
     public void switchToGenerating(View view){
         Log.v(null, "Switched to generating,");
         Intent intent = new Intent(this, GeneratingActivity.class);
         intent.putExtra("mode", robotselection);
+        intent.putExtra("size", Size.getProgress());
         startActivity(intent);
     }
 

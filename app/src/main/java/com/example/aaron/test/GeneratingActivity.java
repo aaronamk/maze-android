@@ -35,12 +35,12 @@ public class GeneratingActivity extends AppCompatActivity implements Order {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_generating);
         F = new MazeFactory();
-        this.SkillLevel = 2;
-        this.Builder = Builder.Kruskal;
-        this.Perfect = false;
         LoadBar = findViewById(R.id.load_bar);
 
         Intent intent = getIntent();
+        this.SkillLevel = intent.getIntExtra("size", 2);
+        this.Builder = Builder.Kruskal;
+        this.Perfect = false;
         F.order(this);
         new Thread(new Runnable() {
             @Override
