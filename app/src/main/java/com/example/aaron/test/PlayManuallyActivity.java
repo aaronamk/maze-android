@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.Switch;
 
@@ -15,6 +16,7 @@ public class PlayManuallyActivity extends AppCompatActivity {
     private StatePlaying SP = new StatePlaying();
     public static MazePanel MP;
     Switch ShowSolution, ShowMaze, ShowFullMap;
+    Button Up, Down, Left, Right;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,6 +45,30 @@ public class PlayManuallyActivity extends AppCompatActivity {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 SP.keyDown(Constants.UserInput.ToggleFullMap, 0);
+            }
+        });
+        Up = findViewById(R.id.up_button);
+        Up.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                SP.keyDown(Constants.UserInput.Up, 0);
+            }
+        });
+        Down = findViewById(R.id.down_button);
+        Down.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                SP.keyDown(Constants.UserInput.Down, 0);
+            }
+        });
+        Left = findViewById(R.id.left_button);
+        Left.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                SP.keyDown(Constants.UserInput.Left, 0);
+            }
+        });
+        Right = findViewById(R.id.right_button);
+        Right.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                SP.keyDown(Constants.UserInput.Right, 0);
             }
         });
     }

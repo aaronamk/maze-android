@@ -119,7 +119,7 @@ public class MazePanel extends View {
      * @param height
      */
     public void fillRect(int x, int y, int width, int height) {
-        C.drawRect(x, y, x+width, y+height, P);
+        C.drawRect(x, y, width, height, P);
     }
     
     /**
