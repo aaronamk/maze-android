@@ -95,8 +95,8 @@
 
     <com.example.aaron.test.gui.MazePanel
         android:id="@+id/MazeView"
-        android:layout_width="400dp"
-        android:layout_height="400dp"
+        android:layout_width="200dp"
+        android:layout_height="600dp"
         android:layout_marginTop="108dp"
         android:visibility="visible"
         app:layout_constraintEnd_toEndOf="parent"
