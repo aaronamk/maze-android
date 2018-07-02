@@ -47,7 +47,7 @@ public class AMazeActivity extends AppCompatActivity implements AdapterView.OnIt
 
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-        Log.v(GenerationSelection, "Selection: " + GenerationSelection);
+        Log.v("AMazeActivity", "Selection: " + GenerationSelection);
     }
     @Override
     public void onNothingSelected(AdapterView<?> parent) { }
