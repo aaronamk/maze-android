@@ -2,7 +2,6 @@ package com.example.aaron.test;
 
 import android.content.Intent;
 import android.os.Handler;
-import android.os.Looper;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -32,7 +31,7 @@ public class GeneratingActivity extends AppCompatActivity {
         LoadBar = findViewById(R.id.load_bar);
 
         Intent intent = getIntent();
-        if(intent.getStringExtra("mode").equals("Manual"))
+        //if(intent.getStringExtra("mode").equals("Manual"))
             Manual = true;
 
         new Thread(new Runnable() {
@@ -41,7 +40,7 @@ public class GeneratingActivity extends AppCompatActivity {
                 F.order(Order);
                 while(Progress < 100){
                     Progress++;
-                    android.os.SystemClock.sleep(50);
+                    android.os.SystemClock.sleep(500);
                     handler.post(new Runnable() {
                         @Override
                         public void run() {

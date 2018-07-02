@@ -1,9 +1,12 @@
 package com.example.aaron.test.gui;
 
+import android.util.Log;
+
 import com.example.aaron.test.generation.CardinalDirection;
 import com.example.aaron.test.generation.Cells;
 import com.example.aaron.test.generation.MazeConfiguration;
 
+import static android.content.ContentValues.TAG;
 
 
 /**

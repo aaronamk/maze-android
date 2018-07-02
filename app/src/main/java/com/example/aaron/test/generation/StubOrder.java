@@ -1,20 +1,25 @@
 package com.example.aaron.test.generation;
 
-public class StubOrder implements Order {
+import android.content.Intent;
+import android.support.v7.app.AppCompatActivity;
+
+import com.example.aaron.test.PlayManuallyActivity;
+
+public class StubOrder extends AppCompatActivity implements Order {
 	private int SkillLevel;
 	Builder Builder;
 	boolean Perfect;
 	int Progress = 0;
 	MazeConfiguration MazeConfig = new MazeContainer();
-	
+
 	public StubOrder() {}
-	
+
 	public StubOrder(int SkillLevel, Builder Builder, boolean Perfect) {
 		this.SkillLevel = SkillLevel;
 		this.Builder = Builder;
 		this.Perfect = Perfect;
 	}
-	
+
 	@Override
 	public int getSkillLevel() {
 		return SkillLevel;
@@ -32,6 +37,7 @@ public class StubOrder implements Order {
 
 	@Override
 	public void deliver(MazeConfiguration mazeConfig) {
+		startActivity(new Intent(this, PlayManuallyActivity.class));
 		this.MazeConfig = mazeConfig;
 	}
 
@@ -39,7 +45,7 @@ public class StubOrder implements Order {
 	public void updateProgress(int percentage) {
 		Progress = percentage;
 	}
-	
+
 	public MazeConfiguration getMazeConfiguration() {
 		return MazeConfig;
 	}
