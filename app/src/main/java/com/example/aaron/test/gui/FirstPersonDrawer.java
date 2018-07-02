@@ -6,6 +6,7 @@ package com.example.aaron.test.gui;
 import android.graphics.Color;
 import android.graphics.Point;
 
+import com.example.aaron.test.PlayManuallyActivity;
 import com.example.aaron.test.generation.BSPBranch;
 import com.example.aaron.test.generation.BSPLeaf;
 import com.example.aaron.test.generation.BSPNode;
@@ -83,6 +84,7 @@ public class FirstPersonDrawer {
 	 */
 	public FirstPersonDrawer(int width, int height, int map_unit, int step_size, Cells seencells, BSPNode bsp_root) {
 		// store given parameter values
+		gc = PlayManuallyActivity.MP;
 		view_width = width ;
 		view_height = height ;
 		this.map_unit = map_unit ;

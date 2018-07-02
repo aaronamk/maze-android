@@ -4,7 +4,9 @@ import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Color;
+import android.graphics.Matrix;
 import android.graphics.Paint;
+import android.graphics.Path;
 import android.util.AttributeSet;
 import android.view.View;
 
@@ -26,7 +28,7 @@ public class MazePanel extends View {
      */
     public MazePanel(Context context) {
         super(context);
-
+        P.setStyle(Paint.Style.FILL);
         // call super class constructor as necessary
 	// TODO: initialize instance variables as necessary
     }
@@ -37,6 +39,7 @@ public class MazePanel extends View {
      */
     public MazePanel(Context context, AttributeSet app) {
         super(context, app);
+        P.setStyle(Paint.Style.FILL);
         // call super class constructor as necessary
 	// TODO: initialize instance variables as necessary
     }
@@ -49,7 +52,7 @@ public class MazePanel extends View {
      */
     @Override
 	public void onDraw(Canvas c) {
-	    C.drawBitmap(B,null,null);
+	    c.drawBitmap(B,new Matrix(),P);
     }
     
     /**
@@ -95,8 +98,8 @@ public class MazePanel extends View {
      */
     public static int getColorEncoding(int red, int green, int blue) {
 	// TODO: provide rgb color encoding
-        Color.rgb(red, green, blue);
-        return (255 & 0xff) << 24 | (red & 0xff) << 16 | (green & 0xff) << 8 | (blue & 0xff);
+        return Color.rgb(red, green, blue);
+        //return (255 & 0xff) << 24 | (red & 0xff) << 16 | (green & 0xff) << 8 | (blue & 0xff);
     }
     
     /**
@@ -127,8 +130,9 @@ public class MazePanel extends View {
      * @param nPoints
      */
     public void fillPolygon(int[] xPoints, int[] yPoints, int nPoints){
-        // translate the points into a path
-        // draw a path on the canvas
+        Path P = new Path();
+        P.lineTo(xPoints[0], xPoints[1]);
+        P.close();
     }
     
     /**
@@ -139,7 +143,7 @@ public class MazePanel extends View {
      * @param y2
      */
     public void drawLine(int x1, int y1, int x2, int y2) {
-        C.drawLine(x1, x2, y1, y2, null);
+        C.drawLine(x1, y1, x2, y2, P);
     }
     
     /**
