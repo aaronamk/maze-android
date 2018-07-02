@@ -131,8 +131,12 @@ public class MazePanel extends View {
      */
     public void fillPolygon(int[] xPoints, int[] yPoints, int nPoints){
         Path P = new Path();
-        P.lineTo(xPoints[0], xPoints[1]);
+        P.setLastPoint(xPoints[0], yPoints[0]);
+        for(int i=1; i<xPoints.length;i++){
+            P.lineTo(xPoints[i], yPoints[i]);
+        }
         P.close();
+        C.drawPath(P, this.P);
     }
     
     /**

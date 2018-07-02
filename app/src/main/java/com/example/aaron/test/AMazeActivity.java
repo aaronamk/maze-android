@@ -18,7 +18,6 @@ public class AMazeActivity extends AppCompatActivity implements AdapterView.OnIt
     Spinner robot;
 
     String[] GenerationList = {"input.xml", "Prim", "Kruskal"};
-    String GenerationSelection;
     Spinner generation;
     SeekBar Size;
 
@@ -67,7 +66,7 @@ public class AMazeActivity extends AppCompatActivity implements AdapterView.OnIt
 
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-        Log.v("AMazeActivity", "Selection: " + GenerationSelection);
+        Log.v("AMazeActivity", "Selection: " + generation.getSelectedItem());
     }
     @Override
     public void onNothingSelected(AdapterView<?> parent) { }
